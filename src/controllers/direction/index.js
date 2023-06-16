@@ -25,10 +25,31 @@ const postDirection = async (req, res) => {
 
 const getDirection = async (req, res) => {
   try {
-    const result = await db("direction").select("id", "name");
+    const {
+      q,
+      limit = 2,
+      offset = 0,
+      order_by = "id",
+      sort_order = "desc",
+    } = req.query;
 
+    const result = db("direction").select("id", "name");
+
+    if (q) {
+      result.andWhereILike("name", `%${q}%`);
+    }
+    const count = await result.clone().groupBy("id").count();
+    result.orderBy(order_by, sort_order);
+    result.limit(limit).offset(offset);
+
+    const direction = await result;
     res.status(201).json({
-      direction: result,
+      direction,
+      directionInfo: {
+        directionCount: count.length,
+        limit,
+        offset,
+      },
     });
   } catch (error) {
     res.status(500).json({

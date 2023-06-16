@@ -8,12 +8,36 @@ const db = require("../../db");
  */
 const getStudents = async (req, res) => {
   try {
+    const {
+      limit = 5,
+      offset = 0,
+      sort_by = "id",
+      sort_order = "desc",
+      q,
+    } = req.query;
+
     const dbQuery = db("students").select("id", "first_name", "last_name");
+
+    if (q) {
+      const query = await dbQuery
+        .andWhereILike("first_name", `%${q}%`)
+        .orWhereILike("last_name", `%${q}%`);
+    }
+
+    const count = await dbQuery.clone().groupBy("id").count();
+
+    dbQuery.orderBy(sort_by, sort_order);
+    dbQuery.limit(limit).offset(offset);
 
     const students = await dbQuery;
 
     res.status(200).json({
       students,
+      studentInfo: {
+        studentCount: count.length,
+        limit,
+        offset,
+      },
     });
   } catch (error) {
     res.status(500).json({

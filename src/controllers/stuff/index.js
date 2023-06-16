@@ -53,6 +53,7 @@ const getStuff = async (req, res) => {
       sort_by = "id",
       sort_order = "desc",
     } = req.query;
+
     const dbQuery = db("stuff").select(
       "id",
       "first_name",

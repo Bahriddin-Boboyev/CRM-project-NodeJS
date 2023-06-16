@@ -6,6 +6,8 @@ const schemas = require("../controllers/groups/schemas");
 
 const router = express.Router();
 
+router.get("/groups", isLoggedIn, controllers.showGroups);
+
 router.post(
   "/groups",
   isLoggedIn,
@@ -14,9 +16,9 @@ router.post(
   controllers.postGroup
 );
 
-router.get("/groups/st/:id", isLoggedIn, controllers.getGroups);
+router.get("/groups/:id", isLoggedIn, controllers.getGroups);
 
-router.get("/groups/:id", isLoggedIn, controllers.getSingleGroup);
+router.get("/groups/single/:id", isLoggedIn, controllers.getSingleGroup);
 
 router.patch(
   "/groups/:id",

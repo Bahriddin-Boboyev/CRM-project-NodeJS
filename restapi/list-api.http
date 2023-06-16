@@ -3,6 +3,24 @@ GET http://localhost:3001/stuff?page=2
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njg4NzQ1MiwiZXhwIjoxNjg2OTczODUyfQ.K5cRgeFvQnNJ3zlFEIZSfTKMnmwtaYSyCnmH7Cl4ykI
 
 
-###
+### SORT STUFF
 GET http://localhost:3001/stuff/?offset=0&limit=5&sort_by=id&sort_order=desc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njg4NzQ1MiwiZXhwIjoxNjg2OTczODUyfQ.K5cRgeFvQnNJ3zlFEIZSfTKMnmwtaYSyCnmH7Cl4ykI
+
+
+### SORT STUDENTS
+GET http://localhost:3001/students/?q=liker
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njg4NzQ1MiwiZXhwIjoxNjg2OTczODUyfQ.K5cRgeFvQnNJ3zlFEIZSfTKMnmwtaYSyCnmH7Cl4ykI
+
+
+### SORT STUDENTS
+GET http://localhost:3001/students/?q=liker
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njg4NzQ1MiwiZXhwIjoxNjg2OTczODUyfQ.K5cRgeFvQnNJ3zlFEIZSfTKMnmwtaYSyCnmH7Cl4ykI
+
+### SORT GROUPS
+GET http://localhost:3001/groups?limit=3&offset=0&q=82
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njg4NzQ1MiwiZXhwIjoxNjg2OTczODUyfQ.K5cRgeFvQnNJ3zlFEIZSfTKMnmwtaYSyCnmH7Cl4ykI
+
+### SORT DIREACTION
+GET http://localhost:3001/direction?limit=3&offset=0&q=dez
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njg4NzQ1MiwiZXhwIjoxNjg2OTczODUyfQ.K5cRgeFvQnNJ3zlFEIZSfTKMnmwtaYSyCnmH7Cl4ykI

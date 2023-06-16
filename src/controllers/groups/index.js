@@ -6,6 +6,49 @@ const db = require("../../db");
  * @param {express.Request} req
  * @param {express.Response} res
  */
+
+const showGroups = async (req, res) => {
+  try {
+    const { q, limit = 2, offset = 0, sort_by, sort_order } = req.query;
+
+    const dbQuery = db("groups").select(
+      "id",
+      "name",
+      "teacher_id",
+      "assistant_teacher_id"
+    );
+    if (!dbQuery) {
+      return req.status(404).json({ error: "bunday guruh topilmadi" });
+    }
+
+    if (q) {
+      dbQuery.andWhereILike("name", `%${q}%`);
+    }
+    const count = await dbQuery.clone().groupBy("id").count();
+    dbQuery.orderBy(sort_by, sort_order)
+    dbQuery.limit(limit).offset(offset);
+    const groups = await dbQuery;
+
+    res.status(200).json({
+      groups,
+      groupInfo: {
+        groupCount: count.length,
+        limit,
+        offset,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: error.message,
+    });
+  }
+};
+
+/**
+ *
+ * @param {express.Request} req
+ * @param {express.Response} res
+ */
 const postGroup = async (req, res) => {
   try {
     const { name, teacher_id, assistant_teacher_id } = req.body;
@@ -99,6 +142,7 @@ const getGroups = async (req, res) => {
     if (!result) {
       return req.status(404).json({ error: "bunday guruh topilmadi" });
     }
+
     res.status(201).json({
       groups: result,
     });
@@ -276,4 +320,5 @@ module.exports = {
   deleteGroup,
   addStudentToGroup,
   deleteGroupStudent,
+  showGroups,
 };

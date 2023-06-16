@@ -1,10 +1,10 @@
 ### POST DIRECTION
 POST http://localhost:3001/direction
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njc1NzAwOCwiZXhwIjoxNjg2ODQzNDA4fQ.4rDRuaMqMbg8ER4xt2w553N1_FcasjM6dj8a1VvSDRI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njg4NzQ1MiwiZXhwIjoxNjg2OTczODUyfQ.K5cRgeFvQnNJ3zlFEIZSfTKMnmwtaYSyCnmH7Cl4ykI
 Content-Type: application/json
 
 {
-  "name": "dezayin"
+  "name": "Grafika"
 }
 
 ### GET DIRECTION

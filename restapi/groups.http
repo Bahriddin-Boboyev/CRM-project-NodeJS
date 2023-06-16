@@ -9,13 +9,13 @@ Content-Type: application/json
 }
 
 ### GET GROUP
-GET http://localhost:3001/groups/st/6
+GET http://localhost:3001/groups/6
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njg4NzQ1MiwiZXhwIjoxNjg2OTczODUyfQ.K5cRgeFvQnNJ3zlFEIZSfTKMnmwtaYSyCnmH7Cl4ykI
 
 ### GET ID GROUP
 
-GET http://localhost:3001/groups/6
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njc1NzAwOCwiZXhwIjoxNjg2ODQzNDA4fQ.4rDRuaMqMbg8ER4xt2w553N1_FcasjM6dj8a1VvSDRI
+GET http://localhost:3001/groups/single/6
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njg4NzQ1MiwiZXhwIjoxNjg2OTczODUyfQ.K5cRgeFvQnNJ3zlFEIZSfTKMnmwtaYSyCnmH7Cl4ykI
 
 
 
