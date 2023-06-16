@@ -1,0 +1,47 @@
+POST http://localhost:3001/groups
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njc1NzAwOCwiZXhwIjoxNjg2ODQzNDA4fQ.4rDRuaMqMbg8ER4xt2w553N1_FcasjM6dj8a1VvSDRI
+Content-Type: application/json
+
+{ 
+  "name": "N82",
+  "teacher_id": "12",
+  "assistant_teacher_id": "13"
+}
+
+### GET GROUP
+GET http://localhost:3001/groups
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njc1NzAwOCwiZXhwIjoxNjg2ODQzNDA4fQ.4rDRuaMqMbg8ER4xt2w553N1_FcasjM6dj8a1VvSDRI
+
+### GET ID GROUP
+
+GET http://localhost:3001/groups/6
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njc1NzAwOCwiZXhwIjoxNjg2ODQzNDA4fQ.4rDRuaMqMbg8ER4xt2w553N1_FcasjM6dj8a1VvSDRI
+
+
+
+### UPDATE GROUP
+PATCH http://localhost:3001/groups/12
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njc1NzAwOCwiZXhwIjoxNjg2ODQzNDA4fQ.4rDRuaMqMbg8ER4xt2w553N1_FcasjM6dj8a1VvSDRI
+Content-Type: application/json
+
+{
+  "name": "N78"
+}
+
+### DELETE GROUP
+DELETE http://localhost:3001/groups/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njc1NzAwOCwiZXhwIjoxNjg2ODQzNDA4fQ.4rDRuaMqMbg8ER4xt2w553N1_FcasjM6dj8a1VvSDRI
+
+
+### STUDEN GURUHGA QO'SHISH
+POST http://localhost:3001/groups/6/students/14
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njc1NzAwOCwiZXhwIjoxNjg2ODQzNDA4fQ.4rDRuaMqMbg8ER4xt2w553N1_FcasjM6dj8a1VvSDRI
+
+### GET STUDENT_GROUPS
+GET http://localhost:3001/groups/6/students
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njc1NzAwOCwiZXhwIjoxNjg2ODQzNDA4fQ.4rDRuaMqMbg8ER4xt2w553N1_FcasjM6dj8a1VvSDRI
+
+
+### DELETE STUDENT_GROUPS
+DELETE http://localhost:3001/groups/6/students/14
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njc1NzAwOCwiZXhwIjoxNjg2ODQzNDA4fQ.4rDRuaMqMbg8ER4xt2w553N1_FcasjM6dj8a1VvSDRI
