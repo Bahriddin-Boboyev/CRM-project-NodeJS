@@ -1,0 +1,8 @@
+# Page size static
+GET http://localhost:3001/stuff?page=2 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njg4NzQ1MiwiZXhwIjoxNjg2OTczODUyfQ.K5cRgeFvQnNJ3zlFEIZSfTKMnmwtaYSyCnmH7Cl4ykI
+
+
+###
+GET http://localhost:3001/stuff/?offset=0&limit=5&sort_by=id&sort_order=desc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njg4NzQ1MiwiZXhwIjoxNjg2OTczODUyfQ.K5cRgeFvQnNJ3zlFEIZSfTKMnmwtaYSyCnmH7Cl4ykI
