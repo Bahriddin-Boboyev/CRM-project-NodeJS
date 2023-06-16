@@ -1,24 +1,24 @@
 ### Add stuff
 POST http://localhost:3001/stuff
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNjg2NzU0MzE5LCJleHAiOjE2ODY4NDA3MTl9.DhwY8UUCRGfl0JDrXjCTleoEGkf5HVZDQzPKSOJKnGk
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njg4NzQ1MiwiZXhwIjoxNjg2OTczODUyfQ.K5cRgeFvQnNJ3zlFEIZSfTKMnmwtaYSyCnmH7Cl4ykI
 
 {
-  "first_name": "Quvonchbek",
-  "last_name": "Muysinov",
-  "role": "assistant_teacher",
-  "username": "ass_tech",
+  "first_name": "Stuff-8",
+  "last_name": "Stuff-8",
+  "role": "teacher",
+  "username": "teacher-8",
   "password": "12345"
 }
 
 ### List stuff
 GET http://localhost:3001/stuff
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njc1NzAwOCwiZXhwIjoxNjg2ODQzNDA4fQ.4rDRuaMqMbg8ER4xt2w553N1_FcasjM6dj8a1VvSDRI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njg4NzQ1MiwiZXhwIjoxNjg2OTczODUyfQ.K5cRgeFvQnNJ3zlFEIZSfTKMnmwtaYSyCnmH7Cl4ykI
 # query params: role, q
 
 ### Show single stuff
 GET http://localhost:3001/stuff/13
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njc1NzAwOCwiZXhwIjoxNjg2ODQzNDA4fQ.4rDRuaMqMbg8ER4xt2w553N1_FcasjM6dj8a1VvSDRI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY4Njg4NzQ1MiwiZXhwIjoxNjg2OTczODUyfQ.K5cRgeFvQnNJ3zlFEIZSfTKMnmwtaYSyCnmH7Cl4ykI
 
 ### Login schema
 POST http://localhost:3001/stuff/login

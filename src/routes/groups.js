@@ -14,7 +14,7 @@ router.post(
   controllers.postGroup
 );
 
-router.get("/groups", isLoggedIn, controllers.getGroups);
+router.get("/groups/st/:id", isLoggedIn, controllers.getGroups);
 
 router.get("/groups/:id", isLoggedIn, controllers.getSingleGroup);
 
@@ -39,8 +39,6 @@ router.post(
   genValidator(schemas.postStudentGroup),
   controllers.addStudentToGroup
 );
-
-router.get("/groups/:id/students", isLoggedIn, controllers.studentGroup);
 
 router.delete(
   "/groups/:id/students/:student_id",

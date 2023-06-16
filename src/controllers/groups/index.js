@@ -33,9 +33,11 @@ const postGroup = async (req, res) => {
     }
 
     const existingGroup = await db("groups").where({ name: name }).first();
-      if(existingGroup){
-        return res.status(500).json({error: `${name} - bu nomli guruh allaqachon mavjud!`})
-      }
+    if (existingGroup) {
+      return res
+        .status(500)
+        .json({ error: `${name} - bu nomli guruh allaqachon mavjud!` });
+    }
     const result = await db("groups")
       .insert({ name, teacher_id, assistant_teacher_id })
       .returning("*");
@@ -56,6 +58,8 @@ const postGroup = async (req, res) => {
  * @param {express.Response} res
  */
 const getGroups = async (req, res) => {
+  const { id } = req.params;
+
   try {
     const result = await db("groups")
       .leftJoin(
@@ -68,6 +72,8 @@ const getGroups = async (req, res) => {
         "stuff_assistant.id",
         "groups.assistant_teacher_id"
       )
+      .innerJoin("student_groups", "student_groups.group_id", "groups.id")
+      .innerJoin("students", "student_groups.student_id", "students.id")
       .select(
         "groups.id",
         "groups.name",
@@ -76,9 +82,23 @@ const getGroups = async (req, res) => {
         ),
         db.raw(
           "CONCAT(stuff_assistant.first_name, ' ', stuff_assistant.last_name) as assistant_teacher"
+        ),
+        db.raw(
+          `json_agg(json_build_object(
+            'id', students.id, 
+           'first_name', students.first_name,
+           'last_name', students.last_name,
+           'joined_at', student_groups.joined_at
+           )) as students`
         )
-      );
+      )
+      .where({ "groups.id": id })
+      .groupBy("groups.id", "stuff_teacher.id", "stuff_assistant.id")
+      .first();
 
+    if (!result) {
+      return req.status(404).json({ error: "bunday guruh topilmadi" });
+    }
     res.status(201).json({
       groups: result,
     });
@@ -118,6 +138,7 @@ const patchGroups = async (req, res) => {
         error: `${id}-idli gruh topilmadi`,
       });
     }
+
     const updated = await db("groups")
       .where({ id })
       .update({ ...changes })
@@ -189,7 +210,8 @@ const addStudentToGroup = async (req, res) => {
   }
 };
 
-const studentGroup = async (req, res) => {
+/* const studentGroup = async (req, res) => {
+
   try {
     const { id } = req.params;
     const group = await db("student_groups")
@@ -200,6 +222,7 @@ const studentGroup = async (req, res) => {
       return res.status(404).json({ error: "Group not found" });
     }
     const students = group.map((g) => g.student_id);
+
     const student = await db("students").whereIn("id", students).returning("*");
 
     const joinStudentGroup = await db("groups").where({ id }).returning("*");
@@ -212,6 +235,7 @@ const studentGroup = async (req, res) => {
     });
   }
 };
+ */
 
 const deleteGroupStudent = async (req, res) => {
   try {
@@ -251,6 +275,5 @@ module.exports = {
   patchGroups,
   deleteGroup,
   addStudentToGroup,
-  studentGroup,
   deleteGroupStudent,
 };
